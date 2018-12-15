@@ -41,7 +41,8 @@ namespace UnitTests.Numerics
             var m6s7 = new GaussianDistribution(6, 7);
 
             var product2 = m4s5 * m6s7;
-            Func<double, double> square = x => x*x;
+            double square(double x) { return x * x; }
+            //Func<double, double> square = x => x * x;
 
             var expectedMean = (4 * square(7) + 6 * square(5)) / (square(5) + square(7));
             Assert.AreEqual(expectedMean, product2.Mean, ErrorTolerance);
@@ -61,7 +62,8 @@ namespace UnitTests.Numerics
             Assert.AreEqual(2.0, productDividedByStandardNormal.Mean, ErrorTolerance);
             Assert.AreEqual(3.0, productDividedByStandardNormal.StandardDeviation, ErrorTolerance);
 
-            Func<double, double> square = x => x * x;
+            double square(double x) { return x * x; }
+            //Func<double, double> square = x => x * x;
             var product2 = new GaussianDistribution((4 * square(7) + 6 * square(5)) / (square(5) + square(7)), Math.Sqrt(((square(5) * square(7)) / (square(5) + square(7)))));
             var m4s5 = new GaussianDistribution(4,5);
             var product2DividedByM4S5 = product2 / m4s5;

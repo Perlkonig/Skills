@@ -7,3 +7,5 @@ bin
 *.DotSettings
 *.suo
 *.nupkg
+.vs
+.vscode
